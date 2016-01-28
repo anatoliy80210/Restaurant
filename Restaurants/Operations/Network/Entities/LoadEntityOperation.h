@@ -12,7 +12,7 @@
 
 @interface LoadEntityOperation : NetworkOperation
 
-@property (nonatomic, strong) NSArray *entities;
+@property (nonatomic, strong) NSArray<id<ParsableEntity> > *entities;
 
 - (instancetype)initWithURL:(NSURL *)url keyPath:(NSString *)keyPath entityClass:(Class)entityClass;
 

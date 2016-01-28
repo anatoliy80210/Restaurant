@@ -7,26 +7,30 @@
 //
 
 #import "ActivityIndicator.h"
+#import "NSString+Utilities.h"
 #import "NetworkOperation.h"
 
 @interface NetworkOperation () <NSURLSessionDownloadDelegate>
 
-@property (nonatomic, copy, nonnull) NSURLRequest *urlRequst;
-@property (nonatomic, strong, nonnull) NSURLSessionDownloadTask *downloadTask;
-@property (nonatomic, strong, nonnull) ActivityIndicator *activiyIndicator;
+@property (nonatomic, strong, nonnull) ActivityIndicator *activityIndicator;
+@property (nonatomic, strong, nonnull) NSFileManager *fileManager;
+@property (nonatomic, strong, nonnull) NSURLRequest *urlRequest;
+@property (nonatomic, strong, nullable) NSURL *cacheFileURL;
+@property (nonatomic, strong, nullable) NSURLSessionDownloadTask *downloadTask;
 
 @end
 
 @implementation NetworkOperation
 
-- (instancetype)initWithURL:(NSURL *)url
+- (instancetype _Nonnull)initWithURL:(NSURL *_Nonnull)url
 {
     self = [super init];
 
     if (self)
     {
-        _urlRequst = [[NSURLRequest alloc] initWithURL:url];
-        _activiyIndicator = [[ActivityIndicator alloc] init];
+        _urlRequest = [[NSURLRequest alloc] initWithURL:url];
+        _activityIndicator = [[ActivityIndicator alloc] init];
+        _fileManager = [NSFileManager defaultManager];
     }
 
     return self;
@@ -40,26 +44,56 @@
 
 - (void)execute
 {
-    NSLog(@"Network: %@", self.urlRequst.URL);
+    NSString *cacheName = self.urlRequest.URL.absoluteString.sha1;
+    NSURL *cacheDirectory = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
 
-    [self.activiyIndicator start];
+    self.cacheFileURL = [cacheDirectory URLByAppendingPathComponent:cacheName isDirectory:NO];
+
+    if ([self isCacheAvailable] && !self.userInitiated && self.useCacheIfAvailable)
+    {
+        NSLog(@"Network (Cache): %@", self.urlRequest.URL);
+
+        [self didDownloadDataAtURL:self.cacheFileURL];
+        [self finish];
+        return;
+    }
+    else
+    {
+        NSLog(@"Network (Server): %@", self.urlRequest.URL);
+    }
+
+    [self.activityIndicator start];
 
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
 
-    self.downloadTask = [session downloadTaskWithRequest:self.urlRequst];
+    self.downloadTask = [session downloadTaskWithRequest:self.urlRequest];
     [self.downloadTask resume];
 }
 
-- (void)didDownloadDataAtURL:(NSURL *)fileURL
+- (void)didDownloadDataAtURL:(NSURL *_Nonnull)fileURL
 {
+    // Should be overwrite by subclasses
 }
 
 #pragma mark - NSURLSessionDownloadTask
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
 {
-    [self didDownloadDataAtURL:location];
+    NSURL *downloadURL = location;
+
+    if (self.useCacheIfAvailable)
+    {
+        NSError *error = nil;
+        [self.fileManager moveItemAtURL:downloadURL toURL:self.cacheFileURL error:&error];
+
+        if (!error)
+        {
+            downloadURL = self.cacheFileURL;
+        }
+    }
+
+    [self didDownloadDataAtURL:downloadURL];
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
@@ -88,8 +122,15 @@
         [self aggregateError:error];
     }
 
-    [self.activiyIndicator finish];
+    [self.activityIndicator finish];
     [self finish];
+}
+
+#pragma mark - Helper
+
+- (BOOL)isCacheAvailable
+{
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.cacheFileURL.path];
 }
 
 @end

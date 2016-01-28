@@ -13,7 +13,7 @@
 @import MapKit;
 
 @interface RestaurantsMapViewController ()
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic, nullable) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -23,20 +23,20 @@
 {
     [super viewDidLoad];
 
-    NSMutableArray<MKPointAnnotation *> *anotations = [NSMutableArray arrayWithCapacity:self.restaurants.count];
+    NSMutableArray<MKPointAnnotation *> *annotations = [NSMutableArray arrayWithCapacity:self.restaurants.count];
 
     for (Restaurant *restaurant in self.restaurants)
     {
-        MKPointAnnotation *anotation = [[MKPointAnnotation alloc] init];
-        anotation.title = restaurant.name;
-        anotation.subtitle = restaurant.category;
-        anotation.coordinate = CLLocationCoordinate2DMake(restaurant.location.latitude, restaurant.location.longitude);
-        [anotations addObject:anotation];
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        annotation.title = restaurant.name;
+        annotation.subtitle = restaurant.category;
+        annotation.coordinate = CLLocationCoordinate2DMake(restaurant.location.latitude, restaurant.location.longitude);
+        [annotations addObject:annotation];
     }
 
-    MKCoordinateRegion region = MKCoordinateRegionMake(anotations.firstObject.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+    MKCoordinateRegion region = MKCoordinateRegionMake(annotations.firstObject.coordinate, MKCoordinateSpanMake(0.1, 0.1));
 
-    [self.mapView addAnnotations:anotations];
+    [self.mapView addAnnotations:annotations];
     [self.mapView setRegion:region animated:YES];
 }
 

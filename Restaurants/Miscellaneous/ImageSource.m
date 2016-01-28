@@ -18,7 +18,7 @@
 
 @implementation ImageSource
 
-- (instancetype)initWithDefaultImage:(UIImage *)defaultImage
+- (instancetype)initWithDefaultImage:(UIImage *_Nonnull)defaultImage
 {
     self = [super init];
 

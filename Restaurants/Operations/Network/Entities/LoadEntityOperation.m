@@ -29,7 +29,7 @@
     return self;
 }
 
-- (void)didDownloadDataAtURL:(NSURL *)fileURL
+- (void)didDownloadDataAtURL:(NSURL *_Nonnull)fileURL
 {
     NSAssert(self.keyPath, @"LoadEntityOperation cannot parse without a KeyPath");
 

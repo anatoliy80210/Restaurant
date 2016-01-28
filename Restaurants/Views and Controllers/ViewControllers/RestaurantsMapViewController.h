@@ -11,6 +11,6 @@
 
 @interface RestaurantsMapViewController : UIViewController
 
-@property (nonatomic, strong) NSArray<Restaurant *> *restaurants;
+@property (nonatomic, strong, nullable) NSArray<Restaurant *> *restaurants;
 
 @end

@@ -17,7 +17,7 @@
 
 @interface RestaurantsViewController () < UICollectionViewDelegateFlowLayout, ImageSourceDelegate>
 
-@property (nonatomic, weak) LoadRestaurantsOperation *loadResturantOperation;
+@property (nonatomic, weak) LoadRestaurantsOperation *loadRestaurantOperation;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 @property (nonatomic, strong) NSArray<Restaurant *> *restaurants;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -31,8 +31,8 @@
 static NSString *const kMapSegueIdentifier = @"RestaurantsMap";
 static NSString *const kRestaurantDetailsSegueIdentifier = @"RestaurantDetails";
 static NSString *const kReuseIdentifier = @"Cell";
-static NSInteger const kNumberOfColumsForCompactHorizontalSizeClass = 1;
-static NSInteger const kNumberOfColumsForRegularHorizontalSizeClass = 2;
+static NSInteger const kNumberOfColumnsForCompactHorizontalSizeClass = 1;
+static NSInteger const kNumberOfColumnsForRegularHorizontalSizeClass = 2;
 static CGFloat const kDefaultCellHeight = 180;
 
 - (void)viewDidLoad
@@ -53,7 +53,7 @@ static CGFloat const kDefaultCellHeight = 180;
 {
     [super viewWillAppear:animated];
 
-    if (!self.restaurants && !self.loadResturantOperation)
+    if (!self.restaurants && !self.loadRestaurantOperation)
     {
         [self loadRestaurants:NO];
     }
@@ -62,7 +62,7 @@ static CGFloat const kDefaultCellHeight = 180;
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.loadResturantOperation cancel];
+    [self.loadRestaurantOperation cancel];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
@@ -141,9 +141,9 @@ static CGFloat const kDefaultCellHeight = 180;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BOOL compact = (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact);
-    CGFloat colums = compact ? kNumberOfColumsForCompactHorizontalSizeClass : kNumberOfColumsForRegularHorizontalSizeClass;
+    CGFloat columns = compact ? kNumberOfColumnsForCompactHorizontalSizeClass : kNumberOfColumnsForRegularHorizontalSizeClass;
 
-    return CGSizeMake(self.collectionView.bounds.size.width / colums, kDefaultCellHeight);
+    return CGSizeMake(self.collectionView.bounds.size.width / columns, kDefaultCellHeight);
 }
 
 #pragma mark - Image Source Delegate
@@ -169,7 +169,7 @@ static CGFloat const kDefaultCellHeight = 180;
 
 - (void)loadRestaurants:(BOOL)userInitiated
 {
-    [self.loadResturantOperation cancel];
+    [self.loadRestaurantOperation cancel];
 
     __weak typeof(self) weakSelf = self;
 
@@ -177,6 +177,7 @@ static CGFloat const kDefaultCellHeight = 180;
 
     LoadRestaurantsOperation *loadRestaurantsOperation = [[LoadRestaurantsOperation alloc] init];
     loadRestaurantsOperation.completionHandlerQueue = dispatch_get_main_queue();
+    loadRestaurantsOperation.userInitiated = userInitiated;
 
     loadRestaurantsOperation.progressHandler = ^(NetworkOperation *operation, CGFloat progress){
         ProgressNavigationBar *navBar = (ProgressNavigationBar *)weakSelf.navigationController.navigationBar;
@@ -200,7 +201,7 @@ static CGFloat const kDefaultCellHeight = 180;
         [weakSelf.refreshControl endRefreshing];
     };
 
-    self.loadResturantOperation = loadRestaurantsOperation;
+    self.loadRestaurantOperation = loadRestaurantsOperation;
     [self.operationQueue addOperation:loadRestaurantsOperation];
 }
 

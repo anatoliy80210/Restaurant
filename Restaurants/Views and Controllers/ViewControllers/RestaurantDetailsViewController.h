@@ -11,6 +11,6 @@
 
 @interface RestaurantDetailsViewController : UIViewController
 
-@property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, strong, nullable) Restaurant *restaurant;
 
 @end

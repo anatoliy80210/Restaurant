@@ -15,12 +15,12 @@
 
 @interface RestaurantDetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *twitterLabel;
+@property (weak, nonatomic, nullable) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic, nullable) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic, nullable) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic, nullable) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic, nullable) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic, nullable) IBOutlet UILabel *twitterLabel;
 
 @end
 
@@ -36,13 +36,13 @@
     self.phoneLabel.text = self.restaurant.contact.formattedPhone;
     self.twitterLabel.text = self.restaurant.contact.twitter;
 
-    MKPointAnnotation *anotation = [[MKPointAnnotation alloc] init];
-    anotation.title = self.restaurant.name;
-    anotation.subtitle = self.restaurant.category;
-    anotation.coordinate = CLLocationCoordinate2DMake(self.restaurant.location.latitude, self.restaurant.location.longitude);
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.title = self.restaurant.name;
+    annotation.subtitle = self.restaurant.category;
+    annotation.coordinate = CLLocationCoordinate2DMake(self.restaurant.location.latitude, self.restaurant.location.longitude);
 
-    MKCoordinateRegion region = MKCoordinateRegionMake(anotation.coordinate, MKCoordinateSpanMake(0.005, 0.005));
-    [self.mapView addAnnotation:anotation];
+    MKCoordinateRegion region = MKCoordinateRegionMake(annotation.coordinate, MKCoordinateSpanMake(0.005, 0.005));
+    [self.mapView addAnnotation:annotation];
     [self.mapView setRegion:region animated:YES];
 }
 

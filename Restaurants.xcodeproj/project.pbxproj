@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3DC6BC1C5A9C2200809421 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3DC6BB1C5A9C2200809421 /* NSString+Utilities.m */; };
 		1AE998621C590E1500BA7FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998611C590E1500BA7FB1 /* main.m */; };
 		1AE998651C590E1500BA7FB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998641C590E1500BA7FB1 /* AppDelegate.m */; };
 		1AE9986B1C590E1500BA7FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE998691C590E1500BA7FB1 /* Main.storyboard */; };
@@ -31,7 +32,6 @@
 		208B278B1C59821D0014A45B /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208B278A1C59821D0014A45B /* WebBrowserViewController.m */; };
 		208B278E1C598E9F0014A45B /* ProgressNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 208B278D1C598E9F0014A45B /* ProgressNavigationBar.m */; };
 		208B27921C5995660014A45B /* ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 208B27911C5995660014A45B /* ActivityIndicator.m */; };
-		208B27941C599AD70014A45B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208B27931C599AD70014A45B /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A3DC6BA1C5A9C2200809421 /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
+		1A3DC6BB1C5A9C2200809421 /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
 		1AE9985D1C590E1500BA7FB1 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE998611C590E1500BA7FB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE998631C590E1500BA7FB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,7 +103,6 @@
 		208B278D1C598E9F0014A45B /* ProgressNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressNavigationBar.m; sourceTree = "<group>"; };
 		208B27901C5995660014A45B /* ActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicator.h; sourceTree = "<group>"; };
 		208B27911C5995660014A45B /* ActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicator.m; sourceTree = "<group>"; };
-		208B27931C599AD70014A45B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +110,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				208B27941C599AD70014A45B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,11 +133,10 @@
 		1AE998541C590E1500BA7FB1 = {
 			isa = PBXGroup;
 			children = (
-				208B27821C597BC70014A45B /* Frameworks */,
-				1AE9985E1C590E1500BA7FB1 /* Products */,
 				1AE9985F1C590E1500BA7FB1 /* Restaurants */,
 				1AE998791C590E1500BA7FB1 /* RestaurantsTests */,
 				1AE998841C590E1500BA7FB1 /* RestaurantsUITests */,
+				1AE9985E1C590E1500BA7FB1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,14 +153,14 @@
 		1AE9985F1C590E1500BA7FB1 /* Restaurants */ = {
 			isa = PBXGroup;
 			children = (
+				1AE998631C590E1500BA7FB1 /* AppDelegate.h */,
+				1AE998641C590E1500BA7FB1 /* AppDelegate.m */,
 				1AE998C01C595B1B00BA7FB1 /* Miscellaneous */,
 				1AE998951C59130300BA7FB1 /* Model */,
 				1AE998A21C5921BF00BA7FB1 /* Operations */,
 				1AE998941C5912F100BA7FB1 /* Resources */,
 				1AE998601C590E1500BA7FB1 /* Supporting Files */,
 				1AE998931C5911FC00BA7FB1 /* Views and Controllers */,
-				1AE998631C590E1500BA7FB1 /* AppDelegate.h */,
-				1AE998641C590E1500BA7FB1 /* AppDelegate.m */,
 			);
 			path = Restaurants;
 			sourceTree = "<group>";
@@ -239,9 +238,9 @@
 		1AE998A21C5921BF00BA7FB1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				1AE9989E1C5919F600BA7FB1 /* Network */,
 				1AE998A31C5921E600BA7FB1 /* ConcurrentOperation.h */,
 				1AE998A41C5921E600BA7FB1 /* ConcurrentOperation.m */,
+				1AE9989E1C5919F600BA7FB1 /* Network */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -251,6 +250,8 @@
 			children = (
 				1AE998AD1C593AD700BA7FB1 /* NSNull+Utilities.h */,
 				1AE998AE1C593AD700BA7FB1 /* NSNull+Utilities.m */,
+				1A3DC6BA1C5A9C2200809421 /* NSString+Utilities.h */,
+				1A3DC6BB1C5A9C2200809421 /* NSString+Utilities.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -318,14 +319,6 @@
 				1AE998B91C594A5F00BA7FB1 /* RestaurantCell.m */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		208B27821C597BC70014A45B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				208B27931C599AD70014A45B /* MapKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		208B278F1C598EA70014A45B /* Views */ = {
@@ -479,6 +472,7 @@
 				1AE998A11C591A1900BA7FB1 /* NetworkOperation.m in Sources */,
 				208B278E1C598E9F0014A45B /* ProgressNavigationBar.m in Sources */,
 				208B277A1C5977DE0014A45B /* RestaurantDetailsViewController.m in Sources */,
+				1A3DC6BC1C5A9C2200809421 /* NSString+Utilities.m in Sources */,
 				1AE998BE1C59592700BA7FB1 /* LoadImageOperation.m in Sources */,
 				1AE998A81C592D4900BA7FB1 /* LoadEntityOperation.m in Sources */,
 				1AE998B61C594A0400BA7FB1 /* RestaurantsViewController.m in Sources */,

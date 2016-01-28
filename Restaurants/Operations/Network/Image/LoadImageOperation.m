@@ -10,7 +10,7 @@
 
 @implementation LoadImageOperation
 
-- (void)didDownloadDataAtURL:(NSURL *)fileURL
+- (void)didDownloadDataAtURL:(NSURL *_Nonnull)fileURL
 {
     NSData *data = [NSData dataWithContentsOfURL:fileURL];
 

@@ -13,7 +13,7 @@
 #pragma mark - Dictionary Keys
 
 static NSString * const kContactPhoneKey = @"phone";
-static NSString *const kContactFormmatedPhoneKey = @"formattedPhone";
+static NSString *const kContactFormattedPhoneKey = @"formattedPhone";
 static NSString *const kContactTwitterKey = @"twitter";
 
 #pragma mark - Init
@@ -25,7 +25,7 @@ static NSString *const kContactTwitterKey = @"twitter";
     if (self)
     {
         _phone = dictionary[kContactPhoneKey];
-        _formattedPhone = dictionary[kContactFormmatedPhoneKey];
+        _formattedPhone = dictionary[kContactFormattedPhoneKey];
         _twitter = dictionary[kContactTwitterKey];
     }
 

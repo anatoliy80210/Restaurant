@@ -12,14 +12,15 @@
 #import "ConcurrentOperation.h"
 
 @class NetworkOperation;
-typedef void (^NetworkOperationProgressHandler)(NetworkOperation *operation, CGFloat progress);
+typedef void (^NetworkOperationProgressHandler)(NetworkOperation *_Nonnull operation, CGFloat progress);
 
 @interface NetworkOperation : ConcurrentOperation
 
 @property (nonatomic, assign) BOOL useCacheIfAvailable;
-@property (nonatomic, strong) NetworkOperationProgressHandler progressHandler;
+@property (nonatomic, assign) BOOL userInitiated;
+@property (nonatomic, strong, nullable) NetworkOperationProgressHandler progressHandler;
 
-- (instancetype)initWithURL:(NSURL *)url;
-- (void)didDownloadDataAtURL:(NSURL *)fileURL;
+- (instancetype _Nonnull)initWithURL:(NSURL *_Nonnull)url;
+- (void)didDownloadDataAtURL:(NSURL *_Nonnull)fileURL;
 
 @end

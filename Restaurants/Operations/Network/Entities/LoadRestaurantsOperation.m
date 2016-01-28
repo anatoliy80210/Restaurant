@@ -19,7 +19,7 @@
 
     if (self)
     {
-        // Does Nothing
+        self.useCacheIfAvailable = YES;
     }
 
     return self;
