@@ -9,7 +9,7 @@
 @import UIKit;
 @class Restaurant;
 
-@interface RestaurantDetailsViewController: UIViewController
+@interface RestaurantDetailsViewController : UIViewController
 
 @property (nonatomic, strong) Restaurant *restaurant;
 

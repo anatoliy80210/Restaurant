@@ -25,5 +25,4 @@
 @property (nonatomic, assign) CGFloat latitude;
 @property (nonatomic, assign) CGFloat longitude;
 
-
 @end

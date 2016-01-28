@@ -7,7 +7,6 @@
 //
 
 @import UIKit;
-
 @class WKWebView;
 
 @interface WebBrowserViewController : UIViewController

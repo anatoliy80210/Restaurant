@@ -8,8 +8,6 @@
 
 #import "LoadEntityOperation.h"
 
-
 @interface LoadRestaurantsOperation : LoadEntityOperation
-
 
 @end

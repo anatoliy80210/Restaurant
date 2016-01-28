@@ -7,7 +7,6 @@
 //
 
 @import Foundation;
-
 @class ConcurrentOperation;
 
 typedef void (^ConcurrentOperationHandler)(ConcurrentOperation *_Nonnull, NSArray<NSError *> *_Nullable);

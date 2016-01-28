@@ -12,7 +12,7 @@
 #import "ConcurrentOperation.h"
 
 @class NetworkOperation;
-typedef void(^NetworkOperationProgressHandler)( NetworkOperation *operation, CGFloat progress);
+typedef void (^NetworkOperationProgressHandler)(NetworkOperation *operation, CGFloat progress);
 
 @interface NetworkOperation : ConcurrentOperation
 

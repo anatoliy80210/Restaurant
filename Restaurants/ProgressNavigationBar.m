@@ -19,18 +19,24 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
+
+    if (self)
+    {
         [self setupProgressView];
     }
+
     return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
-    if (self) {
+
+    if (self)
+    {
         [self setupProgressView];
     }
+
     return self;
 }
 
@@ -42,33 +48,36 @@
 
 #pragma mark - Setters and Getters
 
--(CGFloat)progress {
+- (CGFloat)progress
+{
     return self.progressView.progress;
 }
 
--(void)setProgress:(CGFloat)progress {
+- (void)setProgress:(CGFloat)progress
+{
     self.progressView.progress = progress;
     self.progressView.hidden = ((progress == 1) ||  (progress == 0));
 }
 
 #pragma mark - Helpers
 
-- (void)setupProgressView {
+- (void)setupProgressView
+{
     [_progressView removeFromSuperview];
-    
+
     _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     _progressView.translatesAutoresizingMaskIntoConstraints = NO;
     _progressView.tintColor = self.progressBarTintColor;
-    
+
     [self addSubview:_progressView];
-    
-    NSDictionary *views = @{@"progressView": _progressView};
+
+    NSDictionary *views = @{ @"progressView": _progressView };
     NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[progressView]-(0)-|" options:0 metrics:nil views:views];
     NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[progressView(2)]-(0)-|" options:0 metrics:nil views:views];
 
     [self addConstraints:horizontalConstraints];
     [self addConstraints:verticalConstraints];
-    
+
     self.progress = 0;
 }
 

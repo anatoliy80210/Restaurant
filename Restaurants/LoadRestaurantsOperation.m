@@ -11,14 +11,17 @@
 
 @implementation LoadRestaurantsOperation
 
-- (instancetype)init {
+- (instancetype)init
+{
     NSURL *url = [NSURL URLWithString:@"http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json"];
-    
+
     self = [super initWithURL:url keyPath:@"restaurants" entityClass:[Restaurant class]];
-    
-    if (self) {
+
+    if (self)
+    {
+        // Does Nothing
     }
-    
+
     return self;
 }
 

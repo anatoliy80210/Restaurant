@@ -8,7 +8,6 @@
 
 #import "ParsableEntity.h"
 @import Foundation;
-
 @class Contact;
 @class Location;
 

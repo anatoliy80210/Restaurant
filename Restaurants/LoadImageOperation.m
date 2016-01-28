@@ -10,8 +10,10 @@
 
 @implementation LoadImageOperation
 
-- (void)didDownloadDataAtURL:(NSURL *)fileURL {
+- (void)didDownloadDataAtURL:(NSURL *)fileURL
+{
     NSData *data = [NSData dataWithContentsOfURL:fileURL];
+
     self.image = [UIImage imageWithData:data];
 }
 

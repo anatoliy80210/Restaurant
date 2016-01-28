@@ -9,8 +9,7 @@
 @import UIKit;
 #import "ActivityIndicator.h"
 
-
-@interface  ActivityIndicator()
+@interface  ActivityIndicator ()
 @property (nonatomic, assign) BOOL started;
 @end
 
@@ -18,38 +17,45 @@
 
 static NSInteger gRunningIndicators = 0;
 
-- (void)dealloc {
+- (void)dealloc
+{
     // In case finish was not called
-    
-    if (self.started) {
+
+    if (self.started)
+    {
         gRunningIndicators--;
         [self validateNetworkIndicatorState];
     }
 }
 
--(void)start {
-    if (self.started) {
+- (void)start
+{
+    if (self.started)
+    {
         return;
     }
-    
+
     self.started = YES;
     gRunningIndicators++;
     [self validateNetworkIndicatorState];
 }
 
-- (void)finish {
-    if (!self.started) {
+- (void)finish
+{
+    if (!self.started)
+    {
         return;
     }
+
     self.started = NO;
-    
+
     gRunningIndicators--;
     [self validateNetworkIndicatorState];
 }
 
-- (void)validateNetworkIndicatorState {
+- (void)validateNetworkIndicatorState
+{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = gRunningIndicators != 0;
-
 }
 
 @end

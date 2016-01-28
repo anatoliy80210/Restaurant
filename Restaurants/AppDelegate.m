@@ -14,13 +14,13 @@
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Set tabbar tint color programatically since storyboard has a bug and it won't be set
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
-    
+
     tabController.view.tintColor = [UIColor whiteColor];
-    
+
     return YES;
 }
 

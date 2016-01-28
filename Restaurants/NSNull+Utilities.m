@@ -10,7 +10,8 @@
 
 @implementation NSNull (NSNull_Utilities)
 
-- (id)objectForKeyedSubscript:(id)key {
+- (id)objectForKeyedSubscript:(id)key
+{
     return nil;
 }
 

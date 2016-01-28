@@ -12,21 +12,23 @@
 
 #pragma mark - Dictionary Keys
 
-static NSString *const kContactPhoneKey = @"phone";
+static NSString * const kContactPhoneKey = @"phone";
 static NSString *const kContactFormmatedPhoneKey = @"formattedPhone";
 static NSString *const kContactTwitterKey = @"twitter";
 
 #pragma mark - Init
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
     self = [super init];
-    
-    if (self) {
+
+    if (self)
+    {
         _phone = dictionary[kContactPhoneKey];
         _formattedPhone = dictionary[kContactFormmatedPhoneKey];
         _twitter = dictionary[kContactTwitterKey];
     }
-    
+
     return self;
 }
 

@@ -16,31 +16,34 @@
 
 @implementation LoadEntityOperation
 
-- (instancetype)initWithURL:(NSURL *)url keyPath:(NSString *)keyPath entityClass:(Class)entityClass {
+- (instancetype)initWithURL:(NSURL *)url keyPath:(NSString *)keyPath entityClass:(Class)entityClass
+{
     self = [super initWithURL:url];
-    
-    if (self) {
+
+    if (self)
+    {
         self.keyPath = keyPath;
         self.entityClass = entityClass;
     }
-    
+
     return self;
 }
 
-- (void)didDownloadDataAtURL:(NSURL *)fileURL {
+- (void)didDownloadDataAtURL:(NSURL *)fileURL
+{
     NSAssert(self.keyPath, @"LoadEntityOperation cannot parse without a KeyPath");
-    
+
     NSData *data = [NSData dataWithContentsOfURL:fileURL];
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSArray *jsonArray = jsonDictionary[self.keyPath];
-    
     NSMutableArray *parsedEntities = [NSMutableArray arrayWithCapacity:jsonArray.count];
-    
-    for (NSDictionary *dictionary in jsonArray) {
+
+    for (NSDictionary *dictionary in jsonArray)
+    {
         [parsedEntities addObject:[[self.entityClass alloc] initWithDictionary:dictionary]];
     }
-    
-    self.entities = [parsedEntities copy];    
+
+    self.entities = [parsedEntities copy];
 }
 
 @end
