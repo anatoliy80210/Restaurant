@@ -28,7 +28,7 @@
                                          @"twitter": @"BottleRocket" };
 
     self.contact = [[Contact alloc] initWithDictionary:contactDictionary];
-    
+
     NSDictionary *locationDictionary = @{ @"address": @"some address",
                                           @"crossStreet": @"some crossStreet",
                                           @"lat": @113.311,
@@ -39,14 +39,14 @@
                                           @"city": @"Plano",
                                           @"state": @"TX",
                                           @"formattedAddress": @[@"Number", @"Street", @"Plano", @"TX", @"United States"] };
-    
+
     self.location = [[Location alloc] initWithDictionary:locationDictionary];
-    
 
     NSDictionary *dictionary = @{ @"name": @"BottleRocket",
                                   @"backgroundImageURL": @"http://bottlerocketstudios.com/someImage.jpg",
                                   @"category": @"iOS",
-                                  @"contact": contactDictionary };
+                                  @"contact": contactDictionary,
+                                  @"location": locationDictionary };
 
     self.restaurant = [[Restaurant alloc] initWithDictionary:dictionary];
 }
@@ -67,11 +67,11 @@
     XCTAssertEqual(self.restaurant.category, @"iOS");
 }
 
-- (void)testBackgrounImage
+- (void)testBackgroundImage
 {
     NSURL *url = [[NSURL alloc] initWithString:@"http://bottlerocketstudios.com/someImage.jpg"];
 
-    XCTAssertEqual(self.restaurant.backgroundImageURL, url);
+    XCTAssertEqual(self.restaurant.backgroundImageURL.absoluteString, url.absoluteString);
 }
 
 - (void)testContact
@@ -83,6 +83,7 @@
 
 - (void)testLocation
 {
+    // To better test this subclass isEqual: on the the object and test for equality there
     XCTAssertEqual(self.restaurant.location.address, self.location.address);
     XCTAssertEqual(self.restaurant.location.crossStreet, self.location.crossStreet);
     XCTAssertEqual(self.restaurant.location.postalCode, self.location.postalCode);
@@ -90,9 +91,9 @@
     XCTAssertEqual(self.restaurant.location.countryCode, self.location.countryCode);
     XCTAssertEqual(self.restaurant.location.state, self.location.state);
     XCTAssertEqual(self.restaurant.location.city, self.location.city);
-    XCTAssertEqual(self.restaurant.location.formattedAddress, self.location.formattedAddress);
     XCTAssertEqual(self.restaurant.location.longitude, self.location.longitude);
     XCTAssertEqual(self.restaurant.location.latitude, self.location.latitude);
+    XCTAssert([self.restaurant.location.formattedAddress isEqualToString:self.location.formattedAddress]);
 }
 
 @end
