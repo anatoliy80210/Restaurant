@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1A3DC6BC1C5A9C2200809421 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3DC6BB1C5A9C2200809421 /* NSString+Utilities.m */; };
+		1A3DC6BE1C5ACB2100809421 /* ContactTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3DC6BD1C5ACB2100809421 /* ContactTest.m */; };
+		1A3DC6C01C5AD07800809421 /* LocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3DC6BF1C5AD07800809421 /* LocationTest.m */; };
 		1AE998621C590E1500BA7FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998611C590E1500BA7FB1 /* main.m */; };
 		1AE998651C590E1500BA7FB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998641C590E1500BA7FB1 /* AppDelegate.m */; };
 		1AE9986B1C590E1500BA7FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE998691C590E1500BA7FB1 /* Main.storyboard */; };
 		1AE9986D1C590E1500BA7FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9986C1C590E1500BA7FB1 /* Assets.xcassets */; };
 		1AE998701C590E1500BA7FB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9986E1C590E1500BA7FB1 /* LaunchScreen.storyboard */; };
-		1AE9987B1C590E1500BA7FB1 /* RestaurantsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9987A1C590E1500BA7FB1 /* RestaurantsTests.m */; };
+		1AE9987B1C590E1500BA7FB1 /* RestaurantTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9987A1C590E1500BA7FB1 /* RestaurantTest.m */; };
 		1AE998861C590E1500BA7FB1 /* RestaurantsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998851C590E1500BA7FB1 /* RestaurantsUITests.m */; };
 		1AE9989A1C59144200BA7FB1 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998991C59144200BA7FB1 /* Restaurant.m */; };
 		1AE9989D1C59181400BA7FB1 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9989C1C59181400BA7FB1 /* Contact.m */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		1A3DC6BA1C5A9C2200809421 /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
 		1A3DC6BB1C5A9C2200809421 /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
+		1A3DC6BD1C5ACB2100809421 /* ContactTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTest.m; sourceTree = "<group>"; };
+		1A3DC6BF1C5AD07800809421 /* LocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTest.m; sourceTree = "<group>"; };
 		1AE9985D1C590E1500BA7FB1 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE998611C590E1500BA7FB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE998631C590E1500BA7FB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,7 +67,7 @@
 		1AE9986F1C590E1500BA7FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AE998711C590E1500BA7FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE998761C590E1500BA7FB1 /* RestaurantsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AE9987A1C590E1500BA7FB1 /* RestaurantsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTests.m; sourceTree = "<group>"; };
+		1AE9987A1C590E1500BA7FB1 /* RestaurantTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantTest.m; sourceTree = "<group>"; };
 		1AE9987C1C590E1500BA7FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE998811C590E1500BA7FB1 /* RestaurantsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE998851C590E1500BA7FB1 /* RestaurantsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantsUITests.m; sourceTree = "<group>"; };
@@ -177,7 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				1AE9987C1C590E1500BA7FB1 /* Info.plist */,
-				1AE9987A1C590E1500BA7FB1 /* RestaurantsTests.m */,
+				1AE9987A1C590E1500BA7FB1 /* RestaurantTest.m */,
+				1A3DC6BF1C5AD07800809421 /* LocationTest.m */,
+				1A3DC6BD1C5ACB2100809421 /* ContactTest.m */,
 			);
 			path = RestaurantsTests;
 			sourceTree = "<group>";
@@ -493,7 +499,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE9987B1C590E1500BA7FB1 /* RestaurantsTests.m in Sources */,
+				1A3DC6BE1C5ACB2100809421 /* ContactTest.m in Sources */,
+				1A3DC6C01C5AD07800809421 /* LocationTest.m in Sources */,
+				1AE9987B1C590E1500BA7FB1 /* RestaurantTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,6 @@
 
 @interface ProgressNavigationBar : UINavigationBar
 @property (nonatomic, strong, nonnull) IBInspectable UIColor *progressBarTintColor;
-
 @property (assign, nonatomic) CGFloat progress;
 
 @end
