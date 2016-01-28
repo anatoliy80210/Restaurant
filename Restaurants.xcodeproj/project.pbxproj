@@ -134,10 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				208B27821C597BC70014A45B /* Frameworks */,
+				1AE9985E1C590E1500BA7FB1 /* Products */,
 				1AE9985F1C590E1500BA7FB1 /* Restaurants */,
 				1AE998791C590E1500BA7FB1 /* RestaurantsTests */,
 				1AE998841C590E1500BA7FB1 /* RestaurantsUITests */,
-				1AE9985E1C590E1500BA7FB1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,14 +154,14 @@
 		1AE9985F1C590E1500BA7FB1 /* Restaurants */ = {
 			isa = PBXGroup;
 			children = (
-				1AE998631C590E1500BA7FB1 /* AppDelegate.h */,
-				1AE998641C590E1500BA7FB1 /* AppDelegate.m */,
 				1AE998C01C595B1B00BA7FB1 /* Miscellaneous */,
 				1AE998951C59130300BA7FB1 /* Model */,
 				1AE998A21C5921BF00BA7FB1 /* Operations */,
 				1AE998941C5912F100BA7FB1 /* Resources */,
 				1AE998601C590E1500BA7FB1 /* Supporting Files */,
 				1AE998931C5911FC00BA7FB1 /* Views and Controllers */,
+				1AE998631C590E1500BA7FB1 /* AppDelegate.h */,
+				1AE998641C590E1500BA7FB1 /* AppDelegate.m */,
 			);
 			path = Restaurants;
 			sourceTree = "<group>";
@@ -171,14 +171,14 @@
 			children = (
 				1AE998611C590E1500BA7FB1 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		1AE998791C590E1500BA7FB1 /* RestaurantsTests */ = {
 			isa = PBXGroup;
 			children = (
-				1AE9987A1C590E1500BA7FB1 /* RestaurantsTests.m */,
 				1AE9987C1C590E1500BA7FB1 /* Info.plist */,
+				1AE9987A1C590E1500BA7FB1 /* RestaurantsTests.m */,
 			);
 			path = RestaurantsTests;
 			sourceTree = "<group>";
@@ -186,8 +186,8 @@
 		1AE998841C590E1500BA7FB1 /* RestaurantsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1AE998851C590E1500BA7FB1 /* RestaurantsUITests.m */,
 				1AE998871C590E1500BA7FB1 /* Info.plist */,
+				1AE998851C590E1500BA7FB1 /* RestaurantsUITests.m */,
 			);
 			path = RestaurantsUITests;
 			sourceTree = "<group>";
@@ -195,55 +195,55 @@
 		1AE998931C5911FC00BA7FB1 /* Views and Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				208B278F1C598EA70014A45B /* Views */,
 				208B277B1C59794F0014A45B /* ViewControllers */,
+				208B278F1C598EA70014A45B /* Views */,
 			);
-			name = "Views and Controllers";
+			path = "Views and Controllers";
 			sourceTree = "<group>";
 		};
 		1AE998941C5912F100BA7FB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1AE998711C590E1500BA7FB1 /* Info.plist */,
 				1AE9986C1C590E1500BA7FB1 /* Assets.xcassets */,
+				1AE998711C590E1500BA7FB1 /* Info.plist */,
 				1AE9986E1C590E1500BA7FB1 /* LaunchScreen.storyboard */,
 				1AE998691C590E1500BA7FB1 /* Main.storyboard */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		1AE998951C59130300BA7FB1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1AE998961C59137400BA7FB1 /* ParsableEntity.h */,
-				1AE998981C59144200BA7FB1 /* Restaurant.h */,
-				1AE998991C59144200BA7FB1 /* Restaurant.m */,
 				1AE9989B1C59181400BA7FB1 /* Contact.h */,
 				1AE9989C1C59181400BA7FB1 /* Contact.m */,
 				208B27751C596FEC0014A45B /* Location.h */,
 				208B27761C596FEC0014A45B /* Location.m */,
+				1AE998961C59137400BA7FB1 /* ParsableEntity.h */,
+				1AE998981C59144200BA7FB1 /* Restaurant.h */,
+				1AE998991C59144200BA7FB1 /* Restaurant.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1AE9989E1C5919F600BA7FB1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1AE998BB1C59590600BA7FB1 /* Generic */,
 				1AE998B01C593B6300BA7FB1 /* Entities */,
+				1AE998BB1C59590600BA7FB1 /* Generic */,
 				1AE998BF1C59592B00BA7FB1 /* Image */,
 			);
-			name = Network;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		1AE998A21C5921BF00BA7FB1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				1AE9989E1C5919F600BA7FB1 /* Network */,
 				1AE998A31C5921E600BA7FB1 /* ConcurrentOperation.h */,
 				1AE998A41C5921E600BA7FB1 /* ConcurrentOperation.m */,
-				1AE9989E1C5919F600BA7FB1 /* Network */,
 			);
-			name = Operations;
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		1AE998A91C59399600BA7FB1 /* Categories */ = {
@@ -252,7 +252,7 @@
 				1AE998AD1C593AD700BA7FB1 /* NSNull+Utilities.h */,
 				1AE998AE1C593AD700BA7FB1 /* NSNull+Utilities.m */,
 			);
-			name = Categories;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		1AE998B01C593B6300BA7FB1 /* Entities */ = {
@@ -263,7 +263,7 @@
 				1AE998B11C593BA300BA7FB1 /* LoadRestaurantsOperation.h */,
 				1AE998B21C593BA300BA7FB1 /* LoadRestaurantsOperation.m */,
 			);
-			name = Entities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		1AE998BB1C59590600BA7FB1 /* Generic */ = {
@@ -272,7 +272,7 @@
 				1AE9989F1C591A1900BA7FB1 /* NetworkOperation.h */,
 				1AE998A01C591A1900BA7FB1 /* NetworkOperation.m */,
 			);
-			name = Generic;
+			path = Generic;
 			sourceTree = "<group>";
 		};
 		1AE998BF1C59592B00BA7FB1 /* Image */ = {
@@ -281,34 +281,34 @@
 				1AE998BC1C59592700BA7FB1 /* LoadImageOperation.h */,
 				1AE998BD1C59592700BA7FB1 /* LoadImageOperation.m */,
 			);
-			name = Image;
+			path = Image;
 			sourceTree = "<group>";
 		};
 		1AE998C01C595B1B00BA7FB1 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
 				1AE998A91C59399600BA7FB1 /* Categories */,
-				1AE998C11C595B4800BA7FB1 /* ImageSource.h */,
-				1AE998C21C595B4800BA7FB1 /* ImageSource.m */,
 				208B27901C5995660014A45B /* ActivityIndicator.h */,
 				208B27911C5995660014A45B /* ActivityIndicator.m */,
+				1AE998C11C595B4800BA7FB1 /* ImageSource.h */,
+				1AE998C21C595B4800BA7FB1 /* ImageSource.m */,
 			);
-			name = Miscellaneous;
+			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
 		208B277B1C59794F0014A45B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1AE998B41C594A0400BA7FB1 /* RestaurantsViewController.h */,
-				1AE998B51C594A0400BA7FB1 /* RestaurantsViewController.m */,
 				208B27781C5977DE0014A45B /* RestaurantDetailsViewController.h */,
 				208B27791C5977DE0014A45B /* RestaurantDetailsViewController.m */,
 				208B277D1C5979830014A45B /* RestaurantsMapViewController.h */,
 				208B277E1C5979830014A45B /* RestaurantsMapViewController.m */,
+				1AE998B41C594A0400BA7FB1 /* RestaurantsViewController.h */,
+				1AE998B51C594A0400BA7FB1 /* RestaurantsViewController.m */,
 				208B27891C59821D0014A45B /* WebBrowserViewController.h */,
 				208B278A1C59821D0014A45B /* WebBrowserViewController.m */,
 			);
-			name = ViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		208B277C1C5979560014A45B /* Cells */ = {
@@ -317,7 +317,7 @@
 				1AE998B81C594A5F00BA7FB1 /* RestaurantCell.h */,
 				1AE998B91C594A5F00BA7FB1 /* RestaurantCell.m */,
 			);
-			name = Cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		208B27821C597BC70014A45B /* Frameworks */ = {
@@ -331,11 +331,11 @@
 		208B278F1C598EA70014A45B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				208B277C1C5979560014A45B /* Cells */,
 				208B278C1C598E9F0014A45B /* ProgressNavigationBar.h */,
 				208B278D1C598E9F0014A45B /* ProgressNavigationBar.m */,
-				208B277C1C5979560014A45B /* Cells */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,6 +533,7 @@
 				1AE9986A1C590E1500BA7FB1 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1AE9986E1C590E1500BA7FB1 /* LaunchScreen.storyboard */ = {
@@ -541,6 +542,7 @@
 				1AE9986F1C590E1500BA7FB1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -632,7 +634,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Restaurants/Info.plist;
+				INFOPLIST_FILE = Restaurants/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emil.ios.Restaurants;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -643,7 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Restaurants/Info.plist;
+				INFOPLIST_FILE = Restaurants/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emil.ios.Restaurants;
 				PRODUCT_NAME = "$(TARGET_NAME)";
