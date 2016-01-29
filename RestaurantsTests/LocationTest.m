@@ -97,8 +97,6 @@ static NSString *const kLocationFormattedAddressKey = @"formattedAddress";
 {
     NSString *formattedAddress =  @"Number Street Plano TX United States";
 
-    NSLog(@"%@", self.location.formattedAddress);
-
     XCTAssert([self.location.formattedAddress isEqualToString:formattedAddress]);
 }
 

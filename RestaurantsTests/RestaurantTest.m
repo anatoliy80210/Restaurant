@@ -22,7 +22,12 @@
 - (void)setUp
 {
     [super setUp];
-
+    
+    NSURL *localJsonURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"RestaurantsMock" withExtension:@".json"];
+    NSData *jsonData = [NSData dataWithContentsOfURL:localJsonURL];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSDictionary *restaurantDictioanry = [jsonDictionary[@"restaurants"] firstItem];
+    
     NSDictionary *contactDictionary = @{ @"phone": @"1234567",
                                          @"formattedPhone": @"1-123-4567",
                                          @"twitter": @"BottleRocket" };
