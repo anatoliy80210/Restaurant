@@ -43,7 +43,7 @@
 
     MKCoordinateRegion region = MKCoordinateRegionMake(annotation.coordinate, MKCoordinateSpanMake(0.005, 0.005));
     [self.mapView addAnnotation:annotation];
-    [self.mapView setRegion:region animated:YES];
+    [self.mapView setRegion:region animated:NO];
 }
 
 @end

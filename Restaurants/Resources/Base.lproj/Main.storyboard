@@ -126,7 +126,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-z3-yeR">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-z3-yeR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                             </mapView>
                         </subviews>
@@ -138,6 +138,21 @@
                             <constraint firstItem="xdi-z3-yeR" firstAttribute="top" secondItem="ll3-4c-h1B" secondAttribute="bottom" id="tTX-Go-BSp"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="rxg-Yh-gzb"/>
+                        <barButtonItem title="Me" id="Gii-t0-hf7">
+                            <connections>
+                                <action selector="didSelectMeButton:" destination="Akz-P3-rTi" id="FCu-MZ-zPw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="dzb-Ga-1gB"/>
+                        <barButtonItem title="Stores" id="lcB-6j-i2l">
+                            <connections>
+                                <action selector="didSelectStoresButton:" destination="Akz-P3-rTi" id="PJb-oA-9kV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="VG7-JK-WLZ"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Map" id="JNt-5e-1jc">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Kmc-3a-Ehq">
                             <connections>
@@ -145,6 +160,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="xdi-z3-yeR" id="iVL-dj-5ie"/>
                     </connections>
@@ -172,7 +188,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIU-G6-ahI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="384"/>
                                         <subviews>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ejk-Ek-8zI">
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejk-Ek-8zI">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="8Zq-js-mi5"/>
@@ -360,7 +376,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1eT-0T-ewM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sxo-7h-0fs" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="sxo-7h-0fs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3LC-8N-RFZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -372,6 +388,11 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="LiR-KN-9HF">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Akz-P3-rTi" kind="relationship" relationship="rootViewController" id="6Zd-Fh-T5b"/>
                     </connections>

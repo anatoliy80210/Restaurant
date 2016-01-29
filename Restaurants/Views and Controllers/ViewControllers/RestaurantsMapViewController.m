@@ -6,6 +6,7 @@
 //  Copyright © 2016 Emil Landron. All rights reserved.
 //
 
+#import "AskForMapAutorizationOperation.h"
 #import "Location.h"
 #import "Restaurant.h"
 #import "RestaurantsMapViewController.h"
@@ -19,24 +20,56 @@
 
 @implementation RestaurantsMapViewController
 
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    NSMutableArray<MKPointAnnotation *> *annotations = [NSMutableArray arrayWithCapacity:self.restaurants.count];
+    __weak typeof(self) weakSelf = self;
 
-    for (Restaurant *restaurant in self.restaurants)
-    {
-        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-        annotation.title = restaurant.name;
-        annotation.subtitle = restaurant.category;
-        annotation.coordinate = CLLocationCoordinate2DMake(restaurant.location.latitude, restaurant.location.longitude);
-        [annotations addObject:annotation];
-    }
+    AskForMapAutorizationOperation *operation = [[AskForMapAutorizationOperation alloc] init];
+    operation.completionHandlerQueue = dispatch_get_main_queue();
+    operation.completionHandler = ^(ConcurrentOperation *operation, NSArray<NSError *> *errors){
+        NSMutableArray<MKPointAnnotation *> *annotations = [NSMutableArray arrayWithCapacity:weakSelf.restaurants.count];
 
-    MKCoordinateRegion region = MKCoordinateRegionMake(annotations.firstObject.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+        for (Restaurant *restaurant in weakSelf.restaurants)
+        {
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            annotation.title = restaurant.name;
+            annotation.subtitle = restaurant.category;
+            annotation.coordinate = CLLocationCoordinate2DMake(restaurant.location.latitude, restaurant.location.longitude);
+            [annotations addObject:annotation];
+        }
 
-    [self.mapView addAnnotations:annotations];
+        [weakSelf.mapView addAnnotations:annotations];
+        [weakSelf focusMapAtCoordinate:annotations.firstObject.coordinate];
+    };
+
+    [self.operationQueue addOperation:operation];
+}
+
+#pragma mark - IBAction
+
+- (IBAction)didSelectStoresButton:(UIBarButtonItem *)sender
+{
+    Restaurant *restaurant = self.restaurants.firstObject;
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(restaurant.location.latitude, restaurant.location.longitude);
+
+    [self focusMapAtCoordinate:coordinate];
+}
+
+- (IBAction)didSelectMeButton:(UIBarButtonItem *)sender
+{
+    [self focusMapAtCoordinate:self.mapView.userLocation.coordinate];
+}
+
+#pragma mark - Helpers
+
+- (void)focusMapAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.1, 0.1));
+
     [self.mapView setRegion:region animated:YES];
 }
 
