@@ -6,14 +6,14 @@
 //  Copyright © 2016 Emil Landron. All rights reserved.
 //
 
-#import "AskForMapAutorizationOperation.h"
+#import "AskForMapAuthorizationOperation.h"
 @import CoreLocation;
 
-@interface AskForMapAutorizationOperation () <CLLocationManagerDelegate>
+@interface AskForMapAuthorizationOperation () <CLLocationManagerDelegate>
 @property (nonatomic, strong, nullable) CLLocationManager *locationManager;
 @end
 
-@implementation AskForMapAutorizationOperation
+@implementation AskForMapAuthorizationOperation
 
 - (void)execute
 {
@@ -22,18 +22,13 @@
     if (kCLAuthorizationStatusNotDetermined == status)
     {
         self.locationManager = [[CLLocationManager alloc] init];
-        self.self.locationManager.delegate = self;
         [self.locationManager requestWhenInUseAuthorization];
+        [self finish];
     }
     else
     {
         [self finish];
     }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
-    [super finish];
 }
 
 @end

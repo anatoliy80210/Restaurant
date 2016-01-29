@@ -12,7 +12,7 @@
 		1A3DC6C01C5AD07800809421 /* LocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3DC6BF1C5AD07800809421 /* LocationTest.m */; };
 		1A3DC6C21C5ADCE700809421 /* LoadRestaurantTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3DC6C11C5ADCE700809421 /* LoadRestaurantTest.m */; };
 		1A3DC6C41C5ADED200809421 /* RestaurantsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A3DC6C31C5ADED200809421 /* RestaurantsMock.json */; };
-		1A5D123C1C5B206C005086F6 /* AskForMapAutorizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D123B1C5B206C005086F6 /* AskForMapAutorizationOperation.m */; };
+		1A5D123C1C5B206C005086F6 /* AskForMapAuthorizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D123B1C5B206C005086F6 /* AskForMapAuthorizationOperation.m */; };
 		1AE998621C590E1500BA7FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998611C590E1500BA7FB1 /* main.m */; };
 		1AE998651C590E1500BA7FB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998641C590E1500BA7FB1 /* AppDelegate.m */; };
 		1AE9986B1C590E1500BA7FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE998691C590E1500BA7FB1 /* Main.storyboard */; };
@@ -63,8 +63,8 @@
 		1A3DC6BF1C5AD07800809421 /* LocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTest.m; sourceTree = "<group>"; };
 		1A3DC6C11C5ADCE700809421 /* LoadRestaurantTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadRestaurantTest.m; sourceTree = "<group>"; };
 		1A3DC6C31C5ADED200809421 /* RestaurantsMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RestaurantsMock.json; sourceTree = "<group>"; };
-		1A5D123A1C5B206C005086F6 /* AskForMapAutorizationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskForMapAutorizationOperation.h; sourceTree = "<group>"; };
-		1A5D123B1C5B206C005086F6 /* AskForMapAutorizationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskForMapAutorizationOperation.m; sourceTree = "<group>"; };
+		1A5D123A1C5B206C005086F6 /* AskForMapAuthorizationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskForMapAuthorizationOperation.h; sourceTree = "<group>"; };
+		1A5D123B1C5B206C005086F6 /* AskForMapAuthorizationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskForMapAuthorizationOperation.m; sourceTree = "<group>"; };
 		1AE9985D1C590E1500BA7FB1 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE998611C590E1500BA7FB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE998631C590E1500BA7FB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 		1AE998A21C5921BF00BA7FB1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				1A5D123A1C5B206C005086F6 /* AskForMapAutorizationOperation.h */,
-				1A5D123B1C5B206C005086F6 /* AskForMapAutorizationOperation.m */,
+				1A5D123A1C5B206C005086F6 /* AskForMapAuthorizationOperation.h */,
+				1A5D123B1C5B206C005086F6 /* AskForMapAuthorizationOperation.m */,
 				1AE998A31C5921E600BA7FB1 /* ConcurrentOperation.h */,
 				1AE998A41C5921E600BA7FB1 /* ConcurrentOperation.m */,
 				1AE9989E1C5919F600BA7FB1 /* Network */,
@@ -499,7 +499,7 @@
 				1AE998A51C5921E600BA7FB1 /* ConcurrentOperation.m in Sources */,
 				208B27771C596FEC0014A45B /* Location.m in Sources */,
 				1AE998651C590E1500BA7FB1 /* AppDelegate.m in Sources */,
-				1A5D123C1C5B206C005086F6 /* AskForMapAutorizationOperation.m in Sources */,
+				1A5D123C1C5B206C005086F6 /* AskForMapAuthorizationOperation.m in Sources */,
 				208B27921C5995660014A45B /* ActivityIndicator.m in Sources */,
 				1AE998B31C593BA300BA7FB1 /* LoadRestaurantsOperation.m in Sources */,
 				1AE9989A1C59144200BA7FB1 /* Restaurant.m in Sources */,

@@ -8,6 +8,6 @@
 
 #import "ConcurrentOperation.h"
 
-@interface AskForMapAutorizationOperation : ConcurrentOperation
+@interface AskForMapAuthorizationOperation : ConcurrentOperation
 
 @end

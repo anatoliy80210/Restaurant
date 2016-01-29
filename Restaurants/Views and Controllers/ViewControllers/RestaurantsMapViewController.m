@@ -6,7 +6,7 @@
 //  Copyright © 2016 Emil Landron. All rights reserved.
 //
 
-#import "AskForMapAutorizationOperation.h"
+#import "AskForMapAuthorizationOperation.h"
 #import "Location.h"
 #import "Restaurant.h"
 #import "RestaurantsMapViewController.h"
@@ -28,7 +28,7 @@
 
     __weak typeof(self) weakSelf = self;
 
-    AskForMapAutorizationOperation *operation = [[AskForMapAutorizationOperation alloc] init];
+    AskForMapAuthorizationOperation *operation = [[AskForMapAuthorizationOperation alloc] init];
     operation.completionHandlerQueue = dispatch_get_main_queue();
     operation.completionHandler = ^(ConcurrentOperation *operation, NSArray<NSError *> *errors){
         NSMutableArray<MKPointAnnotation *> *annotations = [NSMutableArray arrayWithCapacity:weakSelf.restaurants.count];
