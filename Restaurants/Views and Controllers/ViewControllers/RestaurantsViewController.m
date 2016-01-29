@@ -83,6 +83,7 @@ static CGFloat const kDefaultCellHeight = 180;
         UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
         RestaurantsMapViewController *mapController = (RestaurantsMapViewController *)navigationController.topViewController;
         mapController.restaurants = self.restaurants;
+        mapController.operationQueue = self.operationQueue;
     }
     else if ([segue.identifier isEqualToString:kRestaurantDetailsSegueIdentifier])
     {

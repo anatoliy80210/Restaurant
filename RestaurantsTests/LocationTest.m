@@ -29,17 +29,12 @@ static NSString *const kLocationFormattedAddressKey = @"formattedAddress";
 - (void)setUp
 {
     [super setUp];
-    NSDictionary *locationDictionary = @{ @"address": @"some address",
-                                          @"crossStreet": @"some crossStreet",
-                                          @"lat": @113.311,
-                                          @"lng": @ - 1543.3333,
-                                          @"postalCode": @"76210",
-                                          @"cc": @"US",
-                                          @"country": @"United States",
-                                          @"city": @"Plano",
-                                          @"state": @"TX",
-                                          @"formattedAddress": @[@"Number", @"Street", @"Plano", @"TX", @"United States"] };
 
+    NSURL *localJsonURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"RestaurantsMock" withExtension:@".json"];
+    NSData *jsonData = [NSData dataWithContentsOfURL:localJsonURL];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSDictionary *restaurantDictionary = jsonDictionary[@"restaurants"][0];
+    NSDictionary *locationDictionary = restaurantDictionary[@"location"];
     self.location = [[Location alloc] initWithDictionary:locationDictionary];
 }
 
@@ -50,54 +45,52 @@ static NSString *const kLocationFormattedAddressKey = @"formattedAddress";
 
 - (void)testAddress
 {
-    XCTAssertEqual(self.location.address, @"some address");
+    XCTAssert([self.location.address isEqualToString:@"5100 Belt Line Road, STE 502"]);
 }
 
 - (void)testCrossStreet
 {
-    XCTAssertEqual(self.location.crossStreet, @"some crossStreet");
+    XCTAssert([self.location.crossStreet isEqualToString:@"Dallas North Tollway"]);
 }
 
 - (void)testLatitude
 {
-    XCTAssertEqual(self.location.latitude, 113.311);
+    XCTAssertEqual(self.location.latitude, 32.950787);
 }
 
 - (void)testLongitude
 {
-    XCTAssertEqual(self.location.longitude, -1543.3333);
+    XCTAssertEqual(self.location.longitude, -96.821118);
 }
 
 - (void)testPostalCode
 {
-    XCTAssertEqual(self.location.postalCode, @"76210");
+    XCTAssert([self.location.postalCode isEqualToString:@"75254"]);
 }
 
 - (void)testCountryCode
 {
-    XCTAssertEqual(self.location.countryCode, @"US");
+    XCTAssert([self.location.countryCode isEqualToString:@"US"]);
 }
 
 - (void)testCountry
 {
-    XCTAssertEqual(self.location.country, @"United States");
+    XCTAssert([self.location.country isEqualToString:@"United States"]);
 }
 
 - (void)testCity
 {
-    XCTAssertEqual(self.location.city, @"Plano");
+    XCTAssert([self.location.city isEqualToString:@"Addison"]);
 }
 
 - (void)testState
 {
-    XCTAssertEqual(self.location.state, @"TX");
+    XCTAssert([self.location.state isEqualToString:@"TX"]);
 }
 
 - (void)testFormattedAddress
 {
-    NSString *formattedAddress =  @"Number Street Plano TX United States";
-
-    NSLog(@"%@", self.location.formattedAddress);
+    NSString *formattedAddress =  @"5100 Belt Line Road, STE 502 (Dallas North Tollway) Addison, TX 75254 United States";
 
     XCTAssert([self.location.formattedAddress isEqualToString:formattedAddress]);
 }
