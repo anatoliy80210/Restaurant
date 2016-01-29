@@ -34,7 +34,7 @@
     self.categoryLabel.text = self.restaurant.category;
     self.addressLabel.text = self.restaurant.location.formattedAddress;
     self.phoneLabel.text = self.restaurant.contact.formattedPhone;
-    self.twitterLabel.text = [NSString stringWithFormat:@"@%@", self.restaurant.contact.twitter];
+    self.twitterLabel.text =  self.restaurant.contact.twitter ? [NSString stringWithFormat:@"@%@", self.restaurant.contact.twitter] : nil;
 
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.title = self.restaurant.name;
