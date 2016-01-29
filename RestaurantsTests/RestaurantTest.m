@@ -22,38 +22,18 @@
 - (void)setUp
 {
     [super setUp];
-    
+
     NSURL *localJsonURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"RestaurantsMock" withExtension:@".json"];
     NSData *jsonData = [NSData dataWithContentsOfURL:localJsonURL];
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    NSDictionary *restaurantDictioanry = [jsonDictionary[@"restaurants"] firstItem];
-    
-    NSDictionary *contactDictionary = @{ @"phone": @"1234567",
-                                         @"formattedPhone": @"1-123-4567",
-                                         @"twitter": @"BottleRocket" };
+    NSDictionary *restaurantDictionary = jsonDictionary[@"restaurants"][0];
+    NSDictionary *contactDictionary = restaurantDictionary[@"contact"];
+    NSDictionary *locationDictionary = restaurantDictionary[@"location"];
 
     self.contact = [[Contact alloc] initWithDictionary:contactDictionary];
-
-    NSDictionary *locationDictionary = @{ @"address": @"some address",
-                                          @"crossStreet": @"some crossStreet",
-                                          @"lat": @113.311,
-                                          @"lng": @ - 1543.3333,
-                                          @"postalCode": @"76210",
-                                          @"cc": @"US",
-                                          @"country": @"United States",
-                                          @"city": @"Plano",
-                                          @"state": @"TX",
-                                          @"formattedAddress": @[@"Number", @"Street", @"Plano", @"TX", @"United States"] };
-
     self.location = [[Location alloc] initWithDictionary:locationDictionary];
 
-    NSDictionary *dictionary = @{ @"name": @"BottleRocket",
-                                  @"backgroundImageURL": @"http://bottlerocketstudios.com/someImage.jpg",
-                                  @"category": @"iOS",
-                                  @"contact": contactDictionary,
-                                  @"location": locationDictionary };
-
-    self.restaurant = [[Restaurant alloc] initWithDictionary:dictionary];
+    self.restaurant = [[Restaurant alloc] initWithDictionary:restaurantDictionary];
 }
 
 - (void)tearDown
@@ -64,41 +44,41 @@
 
 - (void)testName
 {
-    XCTAssertEqual(self.restaurant.name, @"BottleRocket");
+    XCTAssert([self.restaurant.name isEqualToString:@"Hopdoddy Burger Bar"]);
 }
 
 - (void)testCategory
 {
-    XCTAssertEqual(self.restaurant.category, @"iOS");
+    XCTAssert([self.restaurant.category isEqualToString:@"Burgers"]);
 }
 
 - (void)testBackgroundImage
 {
-    NSURL *url = [[NSURL alloc] initWithString:@"http://bottlerocketstudios.com/someImage.jpg"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/Images/hopdoddy.png"];
 
-    XCTAssertEqual(self.restaurant.backgroundImageURL.absoluteString, url.absoluteString);
+    XCTAssert([self.restaurant.backgroundImageURL.absoluteString isEqualToString:url.absoluteString]);
 }
 
 - (void)testContact
 {
-    XCTAssertEqual(self.restaurant.contact.phone, self.contact.phone);
-    XCTAssertEqual(self.restaurant.contact.formattedPhone, self.contact.formattedPhone);
-    XCTAssertEqual(self.restaurant.contact.twitter, self.contact.twitter);
+    XCTAssert([self.restaurant.contact.phone isEqualToString:self.contact.phone]);
+    XCTAssert([self.restaurant.contact.formattedPhone isEqualToString:self.contact.formattedPhone]);
+    XCTAssert([self.restaurant.contact.twitter isEqualToString:self.contact.twitter]);
 }
 
 - (void)testLocation
 {
-    // To better test this subclass isEqual: on the the object and test for equality there
-    XCTAssertEqual(self.restaurant.location.address, self.location.address);
-    XCTAssertEqual(self.restaurant.location.crossStreet, self.location.crossStreet);
-    XCTAssertEqual(self.restaurant.location.postalCode, self.location.postalCode);
-    XCTAssertEqual(self.restaurant.location.country, self.location.country);
-    XCTAssertEqual(self.restaurant.location.countryCode, self.location.countryCode);
-    XCTAssertEqual(self.restaurant.location.state, self.location.state);
-    XCTAssertEqual(self.restaurant.location.city, self.location.city);
+    XCTAssert([self.restaurant.location.address isEqualToString:self.location.address]);
+    XCTAssert([self.restaurant.location.crossStreet isEqualToString:self.location.crossStreet]);
+    XCTAssert([self.restaurant.location.postalCode isEqualToString:self.location.postalCode]);
+    XCTAssert([self.restaurant.location.country isEqualToString:self.location.country]);
+    XCTAssert([self.restaurant.location.countryCode isEqualToString:self.location.countryCode]);
+    XCTAssert([self.restaurant.location.state isEqualToString:self.location.state]);
+    XCTAssert([self.restaurant.location.city isEqualToString:self.location.city]);
+    XCTAssert([self.restaurant.location.formattedAddress isEqualToString:self.location.formattedAddress]);
+
     XCTAssertEqual(self.restaurant.location.longitude, self.location.longitude);
     XCTAssertEqual(self.restaurant.location.latitude, self.location.latitude);
-    XCTAssert([self.restaurant.location.formattedAddress isEqualToString:self.location.formattedAddress]);
 }
 
 @end

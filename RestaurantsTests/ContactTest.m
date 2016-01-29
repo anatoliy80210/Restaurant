@@ -19,7 +19,12 @@
 {
     [super setUp];
 
-    NSDictionary *contactDictionary = @{ @"phone": @"1234567", @"formattedPhone": @"1-123-4567", @"twitter": @"BottleRocket" };
+    NSURL *localJsonURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"RestaurantsMock" withExtension:@".json"];
+    NSData *jsonData = [NSData dataWithContentsOfURL:localJsonURL];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSDictionary *restaurantDictionary = jsonDictionary[@"restaurants"][0];
+    NSDictionary *contactDictionary = restaurantDictionary[@"contact"];
+
     self.contact = [[Contact alloc] initWithDictionary:contactDictionary];
 }
 
@@ -31,17 +36,17 @@
 
 - (void)testPhone
 {
-    XCTAssertEqual(self.contact.phone, @"1234567");
+    XCTAssert([self.contact.phone isEqualToString:@"9723872337"]);
 }
 
 - (void)testFormattedPhone
 {
-    XCTAssertEqual(self.contact.formattedPhone, @"1-123-4567");
+    XCTAssert([self.contact.formattedPhone isEqualToString:@"(972) 387-2337"]);
 }
 
 - (void)testTwitter
 {
-    XCTAssertEqual(self.contact.twitter, @"BottleRocket");
+    XCTAssert([self.contact.twitter isEqualToString:@"hopdoddy"]);
 }
 
 @end
