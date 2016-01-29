@@ -16,8 +16,8 @@
 @interface ImageSource : NSObject
 @property (nonatomic, weak, nullable) id<ImageSourceDelegate> delegate;
 
-- (instancetype _Nonnull)initWithDefaultImage:(UIImage *_Nonnull)defaultImage;
-- (void)clearAllImages;
+- (instancetype)initWithDefaultImage:(UIImage *_Nonnull)defaultImage NS_DESIGNATED_INITIALIZER;
+- (void)              clearAllImages;
 - (UIImage *_Nullable)imageForIndexPath:(NSIndexPath *_Nonnull)indexPath;
 - (void)willDisplayImageWithURL:(NSURL *_Nonnull)url atIndexPath:(NSIndexPath *_Nonnull)indexPath;
 - (void)didEndDisplayingImageAtIndexPath:(NSIndexPath *_Nonnull)indexPath;

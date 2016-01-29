@@ -13,6 +13,7 @@
 		1A3DC6C21C5ADCE700809421 /* LoadRestaurantTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3DC6C11C5ADCE700809421 /* LoadRestaurantTest.m */; };
 		1A3DC6C41C5ADED200809421 /* RestaurantsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A3DC6C31C5ADED200809421 /* RestaurantsMock.json */; };
 		1A5D123C1C5B206C005086F6 /* AskForMapAuthorizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D123B1C5B206C005086F6 /* AskForMapAuthorizationOperation.m */; };
+		1A5D123F1C5B301E005086F6 /* Restaurant+MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D123E1C5B301E005086F6 /* Restaurant+MapAnnotation.m */; };
 		1AE998621C590E1500BA7FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998611C590E1500BA7FB1 /* main.m */; };
 		1AE998651C590E1500BA7FB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE998641C590E1500BA7FB1 /* AppDelegate.m */; };
 		1AE9986B1C590E1500BA7FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE998691C590E1500BA7FB1 /* Main.storyboard */; };
@@ -65,6 +66,8 @@
 		1A3DC6C31C5ADED200809421 /* RestaurantsMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RestaurantsMock.json; sourceTree = "<group>"; };
 		1A5D123A1C5B206C005086F6 /* AskForMapAuthorizationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskForMapAuthorizationOperation.h; sourceTree = "<group>"; };
 		1A5D123B1C5B206C005086F6 /* AskForMapAuthorizationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskForMapAuthorizationOperation.m; sourceTree = "<group>"; };
+		1A5D123D1C5B301E005086F6 /* Restaurant+MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Restaurant+MapAnnotation.h"; sourceTree = "<group>"; };
+		1A5D123E1C5B301E005086F6 /* Restaurant+MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Restaurant+MapAnnotation.m"; sourceTree = "<group>"; };
 		1AE9985D1C590E1500BA7FB1 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE998611C590E1500BA7FB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1AE998631C590E1500BA7FB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				1AE998AE1C593AD700BA7FB1 /* NSNull+Utilities.m */,
 				1A3DC6BA1C5A9C2200809421 /* NSString+Utilities.h */,
 				1A3DC6BB1C5A9C2200809421 /* NSString+Utilities.m */,
+				1A5D123D1C5B301E005086F6 /* Restaurant+MapAnnotation.h */,
+				1A5D123E1C5B301E005086F6 /* Restaurant+MapAnnotation.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5D123F1C5B301E005086F6 /* Restaurant+MapAnnotation.m in Sources */,
 				1AE998BA1C594A5F00BA7FB1 /* RestaurantCell.m in Sources */,
 				1AE998AF1C593AD700BA7FB1 /* NSNull+Utilities.m in Sources */,
 				208B277F1C5979830014A45B /* RestaurantsMapViewController.m in Sources */,

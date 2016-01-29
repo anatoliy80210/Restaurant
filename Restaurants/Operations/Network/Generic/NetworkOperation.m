@@ -22,7 +22,7 @@
 
 @implementation NetworkOperation
 
-- (instancetype _Nonnull)initWithURL:(NSURL *_Nonnull)url
+- (instancetype)initWithURL:(NSURL *_Nonnull)url
 {
     self = [super init];
 

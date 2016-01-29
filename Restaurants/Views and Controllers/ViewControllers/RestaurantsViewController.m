@@ -15,7 +15,7 @@
 #import "RestaurantsMapViewController.h"
 #import "RestaurantsViewController.h"
 
-@interface RestaurantsViewController () < UICollectionViewDelegateFlowLayout, ImageSourceDelegate>
+@interface RestaurantsViewController () < UICollectionViewDelegateFlowLayout, ImageSourceDelegate, RestaurantsMapViewControllerDelegate>
 
 @property (nonatomic, weak) LoadRestaurantsOperation *loadRestaurantOperation;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
@@ -84,6 +84,7 @@ static CGFloat const kDefaultCellHeight = 180;
         RestaurantsMapViewController *mapController = (RestaurantsMapViewController *)navigationController.topViewController;
         mapController.restaurants = self.restaurants;
         mapController.operationQueue = self.operationQueue;
+        mapController.delegate = self;
     }
     else if ([segue.identifier isEqualToString:kRestaurantDetailsSegueIdentifier])
     {
@@ -204,6 +205,22 @@ static CGFloat const kDefaultCellHeight = 180;
 
     self.loadRestaurantOperation = loadRestaurantsOperation;
     [self.operationQueue addOperation:loadRestaurantsOperation];
+}
+
+#pragma mark - RestaurantsMapViewControllerDelegate
+
+- (void)restaurantMapController:(RestaurantsMapViewController *)controller didSelectRestaurant:(Restaurant *)restaurant
+{
+    NSAssert([self.restaurants containsObject:restaurant], @"This should never happen");
+
+    __weak typeof(self) weakSelf = self;
+    [controller dismissViewControllerAnimated:YES completion: ^{
+         NSInteger index = [weakSelf.restaurants indexOfObject:restaurant];
+         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+
+         [weakSelf.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionCenteredVertically];
+         [weakSelf performSegueWithIdentifier:kRestaurantDetailsSegueIdentifier sender:weakSelf];
+     }];
 }
 
 @end

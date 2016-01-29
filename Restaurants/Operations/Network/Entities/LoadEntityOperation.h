@@ -14,6 +14,6 @@
 
 @property (nonatomic, strong) NSArray<id<ParsableEntity> > *entities;
 
-- (instancetype)initWithURL:(NSURL *)url keyPath:(NSString *)keyPath entityClass:(Class)entityClass;
+- (instancetype)initWithURL:(NSURL *)url keyPath:(NSString *)keyPath entityClass:(Class)entityClass NS_DESIGNATED_INITIALIZER;
 
 @end

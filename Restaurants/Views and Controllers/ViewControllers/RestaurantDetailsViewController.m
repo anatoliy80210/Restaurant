@@ -8,6 +8,7 @@
 
 #import "Contact.h"
 #import "Location.h"
+#import "Restaurant+MapAnnotation.h"
 #import "Restaurant.h"
 #import "RestaurantDetailsViewController.h"
 
@@ -36,13 +37,9 @@
     self.phoneLabel.text = self.restaurant.contact.formattedPhone;
     self.twitterLabel.text =  self.restaurant.contact.twitter ? [NSString stringWithFormat:@"@%@", self.restaurant.contact.twitter] : nil;
 
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    annotation.title = self.restaurant.name;
-    annotation.subtitle = self.restaurant.category;
-    annotation.coordinate = CLLocationCoordinate2DMake(self.restaurant.location.latitude, self.restaurant.location.longitude);
+    [self.mapView addAnnotation:self.restaurant];
 
-    MKCoordinateRegion region = MKCoordinateRegionMake(annotation.coordinate, MKCoordinateSpanMake(0.005, 0.005));
-    [self.mapView addAnnotation:annotation];
+    MKCoordinateRegion region = MKCoordinateRegionMake(self.restaurant.coordinate, MKCoordinateSpanMake(0.005, 0.005));
     [self.mapView setRegion:region animated:NO];
 }
 

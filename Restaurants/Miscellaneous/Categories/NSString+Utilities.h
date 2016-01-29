@@ -10,6 +10,6 @@
 
 @interface NSString (Utilities)
 
-- (NSString *)sha1;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *sha1;
 
 @end

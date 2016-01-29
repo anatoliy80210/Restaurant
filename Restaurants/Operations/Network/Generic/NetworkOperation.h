@@ -20,7 +20,7 @@ typedef void (^NetworkOperationProgressHandler)(NetworkOperation *_Nonnull opera
 @property (nonatomic, assign) BOOL userInitiated;
 @property (nonatomic, strong, nullable) NetworkOperationProgressHandler progressHandler;
 
-- (instancetype _Nonnull)initWithURL:(NSURL *_Nonnull)url;
+- (instancetype)initWithURL:(NSURL *_Nonnull)url;
 - (void)didDownloadDataAtURL:(NSURL *_Nonnull)fileURL;
 
 @end

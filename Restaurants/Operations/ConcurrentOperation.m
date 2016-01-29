@@ -10,12 +10,12 @@
 
 #pragma mark - Types
 
-typedef enum : NSUInteger
+typedef NS_ENUM (NSUInteger, ConcurrentOperationState)
 {
     ConcurrentOperationStateReady,
     ConcurrentOperationStateExecuting,
     ConcurrentOperationStateFinished,
-} ConcurrentOperationState;
+};
 
 #pragma mark - ConcurrentOperation Interface
 

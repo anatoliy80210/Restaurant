@@ -8,12 +8,13 @@
 
 #import "AskForMapAuthorizationOperation.h"
 #import "Location.h"
+#import "Restaurant+MapAnnotation.h"
 #import "Restaurant.h"
 #import "RestaurantsMapViewController.h"
 
 @import MapKit;
 
-@interface RestaurantsMapViewController ()
+@interface RestaurantsMapViewController ()<MKMapViewDelegate>
 @property (weak, nonatomic, nullable) IBOutlet MKMapView *mapView;
 
 @end
@@ -31,19 +32,8 @@
     AskForMapAuthorizationOperation *operation = [[AskForMapAuthorizationOperation alloc] init];
     operation.completionHandlerQueue = dispatch_get_main_queue();
     operation.completionHandler = ^(ConcurrentOperation *operation, NSArray<NSError *> *errors){
-        NSMutableArray<MKPointAnnotation *> *annotations = [NSMutableArray arrayWithCapacity:weakSelf.restaurants.count];
-
-        for (Restaurant *restaurant in weakSelf.restaurants)
-        {
-            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-            annotation.title = restaurant.name;
-            annotation.subtitle = restaurant.category;
-            annotation.coordinate = CLLocationCoordinate2DMake(restaurant.location.latitude, restaurant.location.longitude);
-            [annotations addObject:annotation];
-        }
-
-        [weakSelf.mapView addAnnotations:annotations];
-        [weakSelf focusMapAtCoordinate:annotations.firstObject.coordinate];
+        [weakSelf.mapView addAnnotations:weakSelf.restaurants];
+        [weakSelf focusMapAtCoordinate:weakSelf.restaurants.firstObject.coordinate];
     };
 
     [self.operationQueue addOperation:operation];
@@ -53,15 +43,37 @@
 
 - (IBAction)didSelectStoresButton:(UIBarButtonItem *)sender
 {
-    Restaurant *restaurant = self.restaurants.firstObject;
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(restaurant.location.latitude, restaurant.location.longitude);
-
-    [self focusMapAtCoordinate:coordinate];
+    [self focusMapAtCoordinate:self.restaurants.firstObject.coordinate];
 }
 
 - (IBAction)didSelectMeButton:(UIBarButtonItem *)sender
 {
     [self focusMapAtCoordinate:self.mapView.userLocation.coordinate];
+}
+
+#pragma mark - MapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        return nil;
+    }
+
+    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Restaurant"];
+
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    annotationView.canShowCallout = YES;
+    annotationView.annotation = annotation;
+    return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    if ([self.delegate respondsToSelector:@selector(restaurantMapController:didSelectRestaurant:)])
+    {
+        [self.delegate restaurantMapController:self didSelectRestaurant:(Restaurant *)view.annotation];
+    }
 }
 
 #pragma mark - Helpers
